@@ -1,0 +1,1032 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A platform for performing efficient simulations in the quantum photonic domain.">
+      
+      
+        <meta name="author" content="Jacob Ewaniuk">
+      
+      
+      
+        <link rel="prev" href="clements.html">
+      
+      
+        <link rel="next" href="kerr.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+    
+    
+      
+        <title>AA - quotonic</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ffa9267a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quotonic.aa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="quotonic" class="md-header__button md-logo" aria-label="quotonic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            quotonic
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QNLQueens/quotonic" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QNLQueens/quotonic
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="quotonic" class="md-nav__button md-logo" aria-label="quotonic" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    quotonic
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QNLQueens/quotonic" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QNLQueens/quotonic
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fock.html" class="md-nav__link">
+        Fock
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clements.html" class="md-nav__link">
+        Clements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          AA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="aa.html" class="md-nav__link md-nav__link--active">
+        AA
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa" class="md-nav__link">
+    quotonic.aa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.factorial" class="md-nav__link">
+    factorial()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.fockState_to_inds" class="md-nav__link">
+    fockState_to_inds()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.multiPhotonUnitary" class="md-nav__link">
+    multiPhotonUnitary()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.prepGrayCode" class="md-nav__link">
+    prepGrayCode()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.prepNorms_and_USTinds" class="md-nav__link">
+    prepNorms_and_USTinds()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kerr.html" class="md-nav__link">
+        Kerr
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="qpnn.html" class="md-nav__link">
+        QPNN
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="training_sets.html" class="md-nav__link">
+        Training Sets
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="misc.html" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa" class="md-nav__link">
+    quotonic.aa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.factorial" class="md-nav__link">
+    factorial()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.fockState_to_inds" class="md-nav__link">
+    fockState_to_inds()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.multiPhotonUnitary" class="md-nav__link">
+    multiPhotonUnitary()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.prepGrayCode" class="md-nav__link">
+    prepGrayCode()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotonic.aa.prepNorms_and_USTinds" class="md-nav__link">
+    prepNorms_and_USTinds()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>AA</h1>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="quotonic.aa"></a>
+  <div class="doc doc-contents first">
+  
+      <p>The <code>quotonic.aa</code> module includes functions required to perform a transformation from a single-photon
+unitary matrix (<span class="arithmatex">\(m\times m\)</span> where <span class="arithmatex">\(m\)</span> is the number of optical modes) to a multi-photon unitary
+matrix (<span class="arithmatex">\(N\times N\)</span> where <span class="arithmatex">\(N\)</span> is the dimension of the Fock basis for <span class="arithmatex">\(n\)</span> photons and <span class="arithmatex">\(m\)</span> modes).
+This transformation is required to describe how unitaries encoded in the Clements configuration act
+on states resolved in the Fock basis since <span class="arithmatex">\(N \neq m : n &gt; 1\)</span>.</p>
+<p>The code in this module has been inspired by the description of this multi-photon unitary 
+transformation in <a href="https://arxiv.org/abs/1011.3245">S. Aaronson &amp; A. Arkhipov, “The Computational Complexity of Linear Optics”, 
+arXiv:1011.3245 [quant-ph] (2010)</a>. All code in this module is 
+adapted from <a href="https://github.com/steinbrecher/bosonic">Bosonic: A Quantum Optics Library</a>, as 
+originally designed for use in <a href="https://doi.org/10.1038/s41534-019-0174-7">G. R. Steinbrecher <em>et al</em>., “Quantum optical neural networks”, 
+<em>npj Quantum Inf</em> <strong>5</strong>, 60 (2019)</a>.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="quotonic.aa.factorial" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code>
+
+<a href="#quotonic.aa.factorial" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate <span class="arithmatex">\(x!\)</span> efficiently.</p>
+<p>This function uses <code>Cython</code> type definitions to speed up the computation of
+<span class="arithmatex">\(x!\)</span>. It is also <code>memoized</code> to ensure that it is not evaluated redundantly.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>x</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Value to take the factorial of</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Factorial result, <span class="arithmatex">\(x!\)</span></p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="quotonic.aa.fockState_to_inds" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">fockState_to_inds</span><span class="p">(</span><span class="n">numPhotons</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span></code>
+
+<a href="#quotonic.aa.fockState_to_inds" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Convert a Fock basis state to a list of indices for <span class="arithmatex">\(\mathbf{U}_T\)</span>, <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span>.</p>
+<p>In the transformation described by Aaronson &amp; Arkhipov, matrices <span class="arithmatex">\(\mathbf{U}_T\)</span>
+and <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> must be constructed (see <code>multiPhotonUnitary</code> documentation
+for more details). For example, if the basis state is <span class="arithmatex">\(\left|21\right\rangle\)</span>,
+then index <code>0</code> would be inserted twice, followed by a single insertion of index
+<code>1</code>. <code>Cython</code> type definitions are used to improve performance.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>numPhotons</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Number of photons, <span class="arithmatex">\(n\)</span></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>state</code></td>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>Fock basis state</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>A 1D array of length <span class="arithmatex">\(n\)</span> storing indices corresponding to the input Fock basis state</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="quotonic.aa.multiPhotonUnitary" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">multiPhotonUnitary</span><span class="p">(</span><span class="n">numPhotons</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span></code>
+
+<a href="#quotonic.aa.multiPhotonUnitary" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Perform the multi-photon unitary transformation on a single-photon unitary <span class="arithmatex">\(\mathbf{U}\)</span>.</p>
+<p>This function constructs the corresponding multi-photon unitary, <span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span>,
+from input unitary <span class="arithmatex">\(\mathbf{U}\)</span>. It first retrieves a full list of the corresponding Fock basis,
+leveraging the fact that the dimension of the square single-photon unitary must be the number of optical
+modes, <span class="arithmatex">\(m\)</span>. Then, for each iteration, an element of the multi-photon unitary,
+<span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span> is computed using the transformation of Aaronson &amp; Arkhipov. Each
+element can be denoted as <span class="arithmatex">\(\left\langle S \right|\boldsymbol{\Phi}(\mathbf{U})\left| T \right\rangle\)</span>
+where <span class="arithmatex">\(\left|S\right\rangle = \left|s_1,s_2,\dots,s_m\right\rangle\)</span>, <span class="arithmatex">\(\left|T\right\rangle = \left|t_1,t_2,\dots,t_m\right\rangle\)</span>
+represent arbitrary Fock basis states and <span class="arithmatex">\(m\)</span> denotes the number of optical modes. For a given element, an
+<span class="arithmatex">\(m\times n\)</span> matrix, <span class="arithmatex">\(\mathbf{U}_T\)</span>, is constructed by taking <span class="arithmatex">\(t_j\)</span> copies of column <span class="arithmatex">\(j\)</span> in the input single-photon
+unitary <span class="arithmatex">\(\mathbf{U}\)</span> for all <span class="arithmatex">\(j \in \{1,\dots,m\}\)</span>. Next, an <span class="arithmatex">\(n\times n\)</span> matrix, <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span>, is
+constructed by taking <span class="arithmatex">\(s_j\)</span> copies of row <span class="arithmatex">\(j\)</span> in the previously generated matrix, <span class="arithmatex">\(\mathbf{U}_T\)</span>, for all
+<span class="arithmatex">\(j \in \{1,\dots,m\}\)</span>. The matrix element of multi-photon unitary, <span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span> is then
+given by,</p>
+<div class="arithmatex">\[ \left\langle S\right|\boldsymbol{\Phi}(\mathbf{U})\left| T\right\rangle =
+\left\langle s_1,s_2,\dots,s_m\right|\boldsymbol{\Phi}(\mathbf{U})\left|t_1,t_2,\dots,t_m\right\rangle =
+\frac{\text{Per}(\mathbf{U}_{S,T})}{\sqrt{s_1!\dots s_m!t_1!\dots t_m!}}. \]</div>
+<p>As an example, consider a case where there are 2 photons (<span class="arithmatex">\(n = 2\)</span>) and 3 modes (<span class="arithmatex">\(m = 3\)</span>). The input
+Clements encoded single-photon unitary is given by,</p>
+<div class="arithmatex">\[ \mathbf{U} = \begin{pmatrix} u_{00} &amp; u_{01} &amp; u_{02} \\ u_{10} &amp; u_{11} &amp; u_{12} \\ u_{20} &amp; u_{21} &amp; u_{22} \end{pmatrix}. \]</div>
+<p>To compute the matrix element <span class="arithmatex">\(\left\langle 101\right|\boldsymbol{\Phi}(\mathbf{U})\left|011\right\rangle\)</span>,
+first build <span class="arithmatex">\(\mathbf{U}_T\)</span> by taking 0 copies of the first column of <span class="arithmatex">\(\mathbf{U}\)</span>, 1 copy of the second, and 1
+copy of the third,</p>
+<div class="arithmatex">\[ \mathbf{U}_T = \begin{pmatrix} u_{01} &amp; u_{02} \\ u_{11} &amp; u_{12} \\ u_{21} &amp; u_{22} \end{pmatrix}. \]</div>
+<p>Next, build <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> by taking 1 copy of the first row of <span class="arithmatex">\(\mathbf{U}_T\)</span>, 0 copies of the second, and
+1 copy of the third,</p>
+<div class="arithmatex">\[ \mathbf{U}_{S,T} = \begin{pmatrix} u_{01} &amp; u_{02} \\ u_{21} &amp; u_{22} \end{pmatrix}. \]</div>
+<p>The permanent of <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> must be calculated to compute the corresponding matrix element of
+<span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span>. Currently, <a href="https://en.wikipedia.org/wiki/Computing_the_permanent">Ryser's algorithm, in combination with the use of Gray code
+order</a>, is the best known general exact method and is
+evaluated at <span class="arithmatex">\(O(2^{n-1}n)\)</span>. Ryser's algorithm adheres to Ryser's formula, expressed mathematically as,</p>
+<div class="arithmatex">\[ \text{Per}(\mathbf{U}_{S,T}) = (-1)^n \sum_{X \subseteq P} (-1)^{\left|X\right|} \prod_{i=0}^{n-1} \sum_{j\in X} u_{ij}^{(S,T)}, \]</div>
+<p>where set <span class="arithmatex">\(P = \left\{0,1,\dots,n-1\right\}\)</span> and the matrix elements are numbered from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(n - 1\)</span> along
+its rows and columns respectively. Gray code is used to build subsets <span class="arithmatex">\(X\)</span> of <span class="arithmatex">\(P\)</span> in an efficient manner that
+allows matrix permanents to be computed at <span class="arithmatex">\(O(2^{n-1}n)\)</span>. It is conducted using bitwise operations that instruct
+the algorithm to include only the appropriate matrix elements in each sum. The first subset that would be
+constructed is the null set, <span class="arithmatex">\(X = \emptyset\)</span>, thus, it is avoided in the loop that computes the permanent.
+In this example, <span class="arithmatex">\(n = 2\)</span>. It follows that <code>prepGrayCode</code> returns <code>grayInds = [0, 0, 1, 0]</code>,
+<code>graySgns = [1, 1, 1, -1]</code>. Note that each <code>grayInd</code> instructs the elements of <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> required to
+achieve the next subset <span class="arithmatex">\(X\)</span> of <span class="arithmatex">\(P\)</span>. Each <code>graySgn</code> instructs whether to add or subtract. The required sums
+corresponding to subset <span class="arithmatex">\(X\)</span> are stored in the elements of <code>termSums</code>. The <code>termProduct</code> is initialized from the
+result of <span class="arithmatex">\((-1)^{\left|X\right|}\)</span>. With all of this information in mind, the loop that computes the permanent
+of <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> would proceed as shown below for this example.</p>
+<p align="center">
+<img height="1200" src="img/Ryser_example.png">
+</p>
+
+<p>Finally, the matrix element is calculated as,</p>
+<div class="arithmatex">\[ \left\langle 101\right|\boldsymbol{\Phi}(\mathbf{U})\left|011\right\rangle =
+\frac{1}{\sqrt{1!0!1!0!1!1!}}\text{Per}\begin{pmatrix} u_{01} &amp; u_{02} \\ u_{21} &amp; u_{22} \end{pmatrix} =
+u_{01}u_{22} + u_{02}u_{21} \]</div>
+<p>Note that the transformation from single-photon to multi-photon unitary relies on <span class="arithmatex">\(N^2\)</span> permanent calculations
+of <span class="arithmatex">\(n\times n\)</span> matrices <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> where <span class="arithmatex">\(N = {n+m-1 \choose n}\)</span> is the dimension of the Fock basis.
+This number of calculations, alongside the fact that Ryser's algorithm with Gray code is <span class="arithmatex">\(O(2^{n-1}n)\)</span>, makes
+this function the most time consuming of all quantum photonic simulations. The calculations of the elements of
+<span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span> are conducted in parallel using <code>Cython</code> for this reason. Specifically, the
+code turns off the Global Interpreter Lock (<code>with nogil</code>) to enable shared memory, multi-threaded code as
+compiled with OpenMP. <code>Cython</code> type definitions and memory allocation are also exploited to improve performance.
+<code>Cython</code> decorators are also selected to speed up the computation.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>numPhotons</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Number of photons, <span class="arithmatex">\(n\)</span></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>U</code></td>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>Single-photon unitary, <span class="arithmatex">\(\mathbf{U}\)</span> (<span class="arithmatex">\(m\times m\)</span>), to transform</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span></code>
+          </td>
+          <td><p>Multi-photon unitrary, <span class="arithmatex">\(\boldsymbol{\Phi(\mathbf{U})}\)</span> (<span class="arithmatex">\(N\times N\)</span>)</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="quotonic.aa.prepGrayCode" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">prepGrayCode</span><span class="p">(</span><span class="n">numPhotons</span><span class="p">)</span></code>
+
+<a href="#quotonic.aa.prepGrayCode" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Prepare required Gray indices and Gray signum results to compute <span class="arithmatex">\(\text{Per}\left(\mathbf{U}_{S,T}\right)\)</span>.</p>
+<p>For a given number of photons, <span class="arithmatex">\(n\)</span>, this function prepares the
+required Gray indices and Gray signum results to compute
+<span class="arithmatex">\(\text{Per}\left(\mathbf{U}_{S,T}\right)\)</span> using Ryser's
+algorithm with Gray code at <span class="arithmatex">\(O(2^{n-1}n)\)</span>. Bitwise operations
+are used to determine which elements of <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span>
+should be added or subtracted at each iteration of Ryser's
+algorithm. This information is stored in respective 1D arrays
+for quick access in <code>multiPhotonUnitary</code>. The computation of
+the elements of each of these arrays is conducted in parallel
+with <code>Cython</code>. <code>Cython</code> type definitions are used to improve
+performance. This function is also <code>memoized</code> to ensure it is
+not redundantly evaluated for a constant number of photons, <span class="arithmatex">\(n\)</span>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>numPhotons</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Number of photons, <span class="arithmatex">\(n\)</span></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Tuple">Tuple</span>[<span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>]</code>
+          </td>
+          <td><p>Tuple of two 1D arrays, the Gray indices and signum results, respectively</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="quotonic.aa.prepNorms_and_USTinds" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">prepNorms_and_USTinds</span><span class="p">(</span><span class="n">numPhotons</span><span class="p">,</span> <span class="n">numModes</span><span class="p">,</span> <span class="n">fockDim</span><span class="p">)</span></code>
+
+<a href="#quotonic.aa.prepNorms_and_USTinds" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute and arrange normalization constants and indices required for the multi-photon unitary transformation.</p>
+<p>From the number of photons, <span class="arithmatex">\(n\)</span>, the number of optical modes, <span class="arithmatex">\(m\)</span> and the
+dimension of the Fock basis, <span class="arithmatex">\(N\)</span>, this function computes and arranges the
+normalization constants and indices required to generate the multi-photon
+unitary transformation as described by Aaronson &amp; Arkhipov.</p>
+<p>Each normalization constant involves the product of factorials for each
+mode of the two basis states that define an element of the multi-photon
+unitary <span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span>. The mathematical form of the
+normalization constants is given in the documentation of
+<code>multiPhotonUnitary</code>. This function computes the required product of
+factorials for each basis state, square roots this product, then combines
+all results in a 2D array that stores the normalization constant for
+each element of <span class="arithmatex">\(\boldsymbol{\Phi}(\mathbf{U})\)</span> in the corresponding
+position.</p>
+<p>This function also returns a 2D array of indices required to construct
+matrices <span class="arithmatex">\(\mathbf{U}_T\)</span>, <span class="arithmatex">\(\mathbf{U}_{S,T}\)</span> as explained in the
+documentation of <code>multiPhotonUnitary</code>. Each row of this 2D array
+corresponds to a specific Fock basis state.</p>
+<p><code>Cython</code> type definitions are used to improve performance. This function is
+also <code>memoized</code> to ensure it is not evaluated redundantly for a constant
+<span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(m\)</span>, and <span class="arithmatex">\(N\)</span>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>numPhotons</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Number of photons, <span class="arithmatex">\(n\)</span></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>numModes</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Number of optical modes, <span class="arithmatex">\(m\)</span></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>fockDim</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Dimension of the Fock basis, <span class="arithmatex">\(N\)</span></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Tuple">Tuple</span>[<span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>]</code>
+          </td>
+          <td><p>Tuple of two 2D arrays, the normalization constants and indices, respectively</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maintained by <a href="https://www.linkedin.com/in/jacobewaniuk/">Jacob Ewaniuk</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/QNLQueens/quotonic" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.com/project/quotonic" target="_blank" rel="noopener" title="pypi.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
