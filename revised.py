@@ -4,8 +4,9 @@ import math
 from tabulate import tabulate
 from scipy.constants import physical_constants
 # User Settings Here
-N = 4    # replace with number of modes 
-phases = np.array([]) # fill array with desired phases in standard order of operation
+N = 6    # replace with number of modes 
+r= N*(N+2)
+phases = np.arange(1, r+1) # fill array with desired phases in standard order of operation
 ref_index = 1.4677 # Generally accepted value
 pulse_width = 1e-9 # 1 nanosec 
 switch_time = 2e-11 #20 picoseconds fpr the rise time , etc
@@ -146,7 +147,7 @@ def interfere(bottom_array,top,phases,N,switchmode,totaltimebins):
         top[1:] = top[:-1]  # Shift elements up by one position
         top[0] = last_value_top  # Assign the last value to the first index
         last_value_bottom = bottom_array[-1]  # Store the last value of top
-        bottom_array[1:] = bottom_array[:-1]  # Shift elements up by one position
+        bottom_array[1:] = bottom_array[:-1]  # Shift elements up by one positionpythin3
         bottom_array[0] = last_value_bottom  # Assign the last value to the first index
        # print("Top loop:",top)
        # print("bottom loop:", bottom_array)
