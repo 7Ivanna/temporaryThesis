@@ -4,7 +4,7 @@ import math
 from tabulate import tabulate
 from scipy.constants import physical_constants
 # User Settings Here
-N = 6    # replace with number of modes 
+N = 4  # replace with number of modes 
 r= N*(N+2)
 phases = np.arange(1, r+1) # fill array with desired phases in standard order of operation
 ref_index = 1.4677 # Generally accepted value
@@ -19,6 +19,7 @@ divider = 4/N
 modes = list(range(1, N + 1))
 points = N/2
 sorted_modes = sorted(modes, key=lambda x: (x % 2 == 0, x))
+print(sorted_modes)
 print(sorted_modes)
 top_divide = N // 2
 bottom_divide = N // 2 + 1
@@ -66,8 +67,8 @@ def up_to_middle(N, sorted_modes, top_array, bottom_array, timebins, middle_inde
     shifted_values = np.zeros(bottom_divide)  # Array to store shifted out values
     switchmode=0
     for i in range(N):
-        table(totaltimebins,totaltimebins,0,0)
         totaltimebins=totaltimebins+1
+        table(totaltimebins,totaltimebins,0,0)
         #print(f"ts={i + 1}")
         bottom_index = i % bottom_divide
         count = 0
@@ -84,14 +85,14 @@ def up_to_middle(N, sorted_modes, top_array, bottom_array, timebins, middle_inde
         else:  # Change sorted_modes to a length of 3 if it's not already
             sorted_modes = sorted_modes[:3]  # Keep only the first 3 elements
             
-        #print("bottom loop:", bottom_array)
+        print("bottom loop:", bottom_array)
         
         middle_value = bottom_array[middle_index]
         if middle_value != 0:
             middle_value,top = sort(N, middle_value, top_divide, count, top)
+            
             bottom_array[middle_index] = middle_value
             sorted_modes[i % N] = middle_value
-
         count += 1   
         #print("-------------totaltimebins",totaltimebins)
         
@@ -283,7 +284,7 @@ def switch(top, bottom_array,N, switchmode,Ncounter,skips,totaltimebins,phases,t
             #print("Top array:",top)
             #print("bot array:",bottom_array)
             totaltimebins=totaltimebins+1
-           # print("modes interfering:", top[0], "and", bottom_array[-1])
+            print("modes interfering:", top[0], "and", bottom_array[-1])
             if top[0] ==0 or bottom_array[-1] ==0:
                 table(totaltimebins,totaltimebins,0,0)
             else:
@@ -326,9 +327,9 @@ def out(top, bottom_array, switchmode,totaltimebins):
    # print("outnow")
     totaltimebins=totaltimebins+1
     lossbins=totaltimebins
-  #  print("Top array:", top)
-   # print("bot array:", bottom_array)
-  #  print("TotalBins",totaltimebins)
+    print("Top array:", top)
+    print("bot array:", bottom_array)
+    print("TotalBins",totaltimebins)
     top_temp = top[0]
     bottom_temp = bottom_array[-1]
     top[0] = bottom_temp  # Assign the last value to the first index
@@ -339,13 +340,13 @@ def out(top, bottom_array, switchmode,totaltimebins):
     last_value_bottom = bottom_array[-1]  # Store the last value of top
     bottom_array[1:] = bottom_array[:-1]  # Shift elements up by one position
     bottom_array[0] = last_value_bottom  # Assign the last value to the first index
-   # print("Top array:", top)
-   # print("bot array:", bottom_array)
-   # print("modes interfering:", top[0], "and", bottom_array[-1])
+    print("Top array:", top)
+    print("bot array:", bottom_array)
+    print("modes interfering:", top[0], "and", bottom_array[-1])
     saved_numbers = []  # List to save the numbers coming from bottom_array[-1]
     for _ in range(N+1):  # Loop for the length of bottom_array - 1
         saved_numbers.append(bottom_array[-2])  # Save the number coming from bottom_array[-1]
-      #  print("modes interfering:", top[0], "and", bottom_array[-1])
+        print("modes interfering:", top[0], "and", bottom_array[-1])
         theta=0
         phi=0
         table(totaltimebins,totaltimebins,theta,phi)
@@ -362,9 +363,9 @@ def out(top, bottom_array, switchmode,totaltimebins):
         bottom_array[0] = last_value_bottom  # Assign the last value to the first i
         #top[-1] = 0
           # Move the last element of bottom_array to the beginning of top
-      #  print("Top array:", top)
-      #  print("bot array:", bottom_array)
-        #print("saved_numbers:", saved_numbers)
+        print("Top array:", top)
+        print("bot array:", bottom_array)
+        print("saved_numbers:", saved_numbers)
         totaltimebins=totaltimebins+1
        # print("TotalBins",totaltimebins)
         

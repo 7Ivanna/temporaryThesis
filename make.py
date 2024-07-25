@@ -4,7 +4,7 @@ import math
 from tabulate import tabulate
 from scipy.constants import physical_constants
 # User Settings Here
-N = 4
+N = 6
 skips = 1 # need to changethis based on N 1 if 4 2 if 6
 ref_index = 1.4677 # based on paper jacob sent
 photon_width = 1e-9 # 1 nanosec 

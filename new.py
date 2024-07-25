@@ -4,7 +4,7 @@ import math
 from tabulate import tabulate
 from scipy.constants import physical_constants
 # User Settings Here
-N = 6
+N = 8
 r= N*(N+2)
 phases = np.arange(1, r+1)
 skips = int(.5*N-1)
@@ -17,7 +17,7 @@ total_timer=photon_width+switch_time+time_jitter
 speed_of_light = physical_constants['speed of light in vacuum'][0] 
 
 divider = 4/N
-modes = list(range(1, N + 1))
+modes = list(range(1, N + 2))
 points = N/2
 sorted_modes = sorted(modes, key=lambda x: (x % 2 == 0, x))
 print(sorted_modes)
