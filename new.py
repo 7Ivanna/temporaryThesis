@@ -4,8 +4,8 @@ import math
 from tabulate import tabulate
 from scipy.constants import physical_constants
 # User Settings Here
-N = 8
-r= N*(N+2)
+N = 4
+r= N**2-N
 phases = np.arange(1, r+1)
 skips = int(.5*N-1)
 ref_index = 1.4677 # based on paper jacob sent

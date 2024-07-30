@@ -11,41 +11,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import quotonic.training_sets as ts
 from quotonic.misc import genHaarUnitary
-# N=6
-# n=2 #cause girl we got 2 photons
-# m=6 #she be a 6 x 6 matrix right
-# D=np.array( #the D array
-#             [
-#                 [1, 0,0,0,0,0],
-#                 [0,1,0,0,0,0],
-#                 [0,0,1,0,0,0],
-#                 [0,0,0,1,0,0],
-#                 [0,0,0,0,1,0],
-#                 [0,0,0,0,0,1]
-#             ],dtype=complex)
-# mesh = Mesh(6)
-# U = np.array([[-1, np.sqrt(2), 0, 0, 0, 0],
-#         [np.sqrt(2), 1, 0, 0, 0, 0],
-#         [0, 0, -1, 1, 1, 0],
-#         [0, 0, 1, 1, 0, 1],
-#         [0, 0, 1, 0, 1, -1],
-#         [0, 0, 0, 1, -1, -1]], dtype=complex) / np.sqrt(3)
-# print(mesh.decode(U))
-
-# print("the phases are", mesh.phases)
-
-# new=np.dot(D,U)
-
-# multiguy=aa.multiPhotonUnitary(2, new)# I think this is fine
-# # multiguy = np.square(np.abs(multiguy))
-# myfockbasis=basis(n,m)
-# N=len(myfockbasis)
-# ind = [myfockbasis.index([0, 1, 0, 1, 0, 0]),
-#         myfockbasis.index([0, 1, 0, 0, 1, 0]),
-#         myfockbasis.index([0, 0, 1, 1, 0, 0]),
-#         myfockbasis.index([0, 0, 1, 0, 1, 0])]  #these seem... alright?
-
-#generating harr
 
 train=ts.CNOT()
 neural=qp.QPNN(2,4,2,trainingSet=train)
@@ -68,9 +33,8 @@ print("ok")
 #print(kerr_unit)
 #u_k_array = np.dot(kerr_unit,multiguy)
 
-setting =  neural.set_phases(allPhases)
-func = neural.sysFunc()
-#print(neural)
+setting_phases =  neural.set_phases(allPhases)
+func_S = neural.sysFunc()
 
 # Gaussian function
 def gaussian(t, tj, tau, sigma_t):
@@ -93,10 +57,45 @@ psi0 = np.zeros((10, 200, 200), dtype = complex)
 # if you want |1010> as your input state, then you need to find that and insert wf there
 ind = basis(2, 4).index([1, 0, 1, 0])
 psi0[ind, :, :] = wf
+ind2 = basis(2, 4).index([1, 0, 0, 1])
+psi0[ind2, :, :] = wf
+ind3 = basis(2, 4).index([0, 1, 1, 0])
+psi0[ind3, :, :] = wf
+ind4 = basis(2, 4).index([0, 1, 0, 1])
+psi0[ind3, :, :] = wf
 
-psi_out = np.tensordot(func, psi0, axes=1 )
+psi_out = np.tensordot(func_S, psi0, axes=1 )
 print(psi_out)
 t = np.linspace(-10, 10, 200)
 tj =0
 tau = np.linspace(-10, 10, 200)
+
+psi0_act = np.zeros((10, 200, 200), dtype = complex)
+
+ind_psi_act = basis(2, 4).index([1, 0, 1, 0])
+psi0_act[ind_psi_act, :, :] = 1.0
+ind_psi_act2 = basis(2, 4).index([1, 0, 0, 1])
+psi0_act[ind_psi_act2, :, :] = 1.0
+ind_psi_act3 = basis(2, 4).index([0, 1, 1, 0])
+psi0_act[ind_psi_act3, :, :] = 1.0
+ind_psi_act4 = basis(2, 4).index([0, 1, 0, 1])
+psi0_act[ind_psi_act4, :, :] = 1.0
+
+print("dot product")
+psi_out_act_psi_out = np.dot(psi0_act, psi_out )
+#print(psi_out_act_psi_out)
+
+psi_out_act_psi_out1= basis(2, 4).index([1, 0, 1, 0])
+psi_out_act_psi_out2= basis(2, 4).index([1, 0, 0, 1])
+
+print(len(psi_out_act_psi_out))
+
+
+# full4by4= 1/21*np.square(np.abs(np.array([[element11, element21, element31, element41], 
+#                [ element12,element22,element32,element42], 
+#                [element13,element23,element33,element43],
+#                [element14,element24,element34,element44]])))
+
+
+
 

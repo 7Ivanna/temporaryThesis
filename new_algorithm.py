@@ -3,8 +3,8 @@ import math
 from tabulate import tabulate
 from scipy.constants import physical_constants
 # User Settings Here
-N = 6  # replace with number of modes 
-r= N*(N+2)
+N =10 # replace with number of modes 
+r= N**2-N
 phases = np.arange(1, r+1) # fill array with desired phases in standard order of operation
 print(phases)
 ref_index = 1.4677 # Generally accepted value
@@ -59,6 +59,7 @@ def entry(N, bottom_divide, sorted_modes, totaltimebins, top,phases,skips):
     entry_steps = int(N / 2 +1)
     bottom = np.zeros(bottom_divide, dtype=object)
     count = 0 
+    switxhx_count = 0
     thetacount=0
     phicount=1
     bottom[0] = sorted_modes[0]  # Move the first element to bottom[0]
@@ -73,11 +74,16 @@ def entry(N, bottom_divide, sorted_modes, totaltimebins, top,phases,skips):
     print(bottom)
     sorted_modes = sorted_modes[:-skips]
     bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount =interfere_x(sorted_modes, top, count,phases,totaltimebins,entry_steps)
-    for i in range(int((N/2))):
-        bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=switch_void(sorted_modes, top, count,phases,totaltimebins, int(N/2), thetacount, phicount)
-        bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=switch_x(sorted_modes, top, count,phases,totaltimebins,int(N/2 +1), thetacount, phicount)
-    
+   # for i in range(int((N/2))):
     bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=switch_void(sorted_modes, top, count,phases,totaltimebins, int(N/2), thetacount, phicount)
+    print('them',phases[phicount])
+    bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount,switxhx_count=switch_x(sorted_modes, top, count,phases,totaltimebins,int(N/2 +1), thetacount, phicount,switxhx_count)
+   # bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=switch_void(sorted_modes, top, count,phases,totaltimebins, int(N/2), thetacount, phicount)
+   # bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=switch_x(sorted_modes, top, count,phases,totaltimebins,int(N/2 +1), thetacount, phicount)
+    #bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=switch_x(sorted_modes, top, count,phases,totaltimebins, int(N/2), thetacount, phicount)
+    #bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount=last_one(bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount)
+
+
     exit(bottom, top, count,phases,totaltimebins,entry_steps,N,thetacount, phicount)
 
     
@@ -144,6 +150,7 @@ def interfere_x(bottom, top, count,phases,totaltimebins,entry_steps):
         return bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount
 
 def switch_void(bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount):
+    print("switch void")
     for i in range(entry_steps):
         last_value_bottom = bottom[0]  # Store the first value of bottom
         bottom[:-1] = bottom[1:]  # Shift elements down by one position
@@ -181,21 +188,11 @@ def switch_void(bottom, top, count,phases,totaltimebins,entry_steps, thetacount,
     bottom[:-1] = bottom[1:]  # Shift elements down by one position
     bottom[-1] = last_value_bottom  # Assign the first value to the last in
     print(bottom)
-    '''top_temp = top[0]  # Store the last value of top
-    print(top_temp)
-    print(bottom[0])
-    print("bottom_temp",bottom_temp)
-    top_temp = top[0]  # Store the last value of top
-    top[0] = bottom_temp  # Assign the last value to the first index
-    bottom[0]=top_temp
-    print(top)
-    print(bottom)
-    print(bottom , top, "hehe")'''
-
     return bottom, top, count,phases,totaltimebins,entry_steps,thetacount, phicount
 
-def switch_x(bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount):
-    for i in range(entry_steps):
+def switch_x(bottom, top, count,phases,totaltimebins,entry_steps, thetacount, phicount,switxhx_count):
+    switxhx_count+=1
+    for i in range(int(0.375*N**2+.75*N-8)):
         print('start')
         totaltimebins=totaltimebins+1
         last_value_top = top[-1]  # Store the last value of top
@@ -228,56 +225,66 @@ def switch_x(bottom, top, count,phases,totaltimebins,entry_steps, thetacount, ph
         print(bottom)
        
         
+        
     last_value_bottom = bottom[-1]  # Store the first value of bottom
     bottom[1:] = bottom[:-1]  # Shift elements down by one position
     bottom[0] = last_value_bottom  # Assign the first value to the last index
     
     
-    return bottom, top, count,phases,totaltimebins,entry_steps,thetacount, phicount
+    return bottom, top, count,phases,totaltimebins,entry_steps,thetacount, phicount,switxhx_count
+
+def last_one(bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount):
+
+    
+    # last_value_bottom= bottom[-1]  # Store the last value of top
+    # bottom[1:] = bottom[:-1]  # Shift elements up by one position
+    # bottom[0] = last_value_bottom  # Assign the last value to the first index
+    out[i]=bottom[1]
+    bottom[1] = 0
+    print(f"modes interfering: top[0] and input[0]: {top[0]} and {bottom[0]}")
+  
+    
+    
+    table(totaltimebins, totaltimebins, 0, 0)
+
+    # top_temp = top[0]
+    # bottom_temp = bottom[0]
+    # bottom[0] = top_temp
+    # top[0] = bottom_temp
+    
+    
+    last_value_top = top[-1]  # Store the last value of top
+    top[1:] = top[:-1]  # Shift elements up by one position
+    top[0] = last_value_top  # Assign the last value to the first index
+    last_value_bottom = bottom[0]  # Store the first value of bottom
+    bottom[:-1] = bottom[1:]  # Shift elements down by one position
+    bottom[-1] = last_value_bottom  # Assign the first value to the last in
+    totaltimebins=totaltimebins+1
+    print(bottom)
+    print(top)
+    print(out)
+    entry_steps-=entry_steps
+
+    print(top)
+    print(bottom)
+    print(bottom)
+    # s=int(i+entry_steps)
+    # print(s)
+    # entry_steps-=entry_steps
+    top_temp = top[0]
+    bottom_temp = bottom[0]
+    bottom[0] = top_temp
+    top[0] = bottom_temp
+    return bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount
+
+
+
+
 
 def exit_interference(bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount):
-        if  exit_sum ==0 :
-            print(bottom)
-            print('start')
-            totaltimebins=totaltimebins+1
-            last_value_top = top[-1]  # Store the last value of top
-            top[1:] = top[:-1]  # Shift elements up by one position
-            top[0] = last_value_top  # Assign the last value to the first index
-            last_value_bottom = bottom[0]  # Store the first value of bottom
-            bottom[:-1] = bottom[1:]  # Shift elements down by one position
-            bottom[-1] = last_value_bottom  # Assign the first value to the last 
-            print(top)
-            print(bottom)
-            print(f"modes interfering: top[0] and input[0]: {top[0]} and {bottom[0]}")
-            print("exiting")
-            if top[0] and bottom[0] != 0:
-                theta=phases[thetacount]
-                phi=phases[phicount]
-                table(totaltimebins,totaltimebins,theta,phi)
-                thetacount=thetacount+2
-                phicount=phicount+2
-            table(totaltimebins, totaltimebins, 0, 0)
-
-            # top_temp = top[0]
-            # bottom_temp = bottom[0]
-            # bottom[0] = top_temp
-            # top[0] = bottom_temp
-            out[i]=bottom[-1]
-            bottom[-1] = 0
-            print(bottom)
-            print(top)
-            print(out)
-            entry_steps-=entry_steps
-           
-            print(top)
-            print(bottom)
-            print(bottom)
-            # s=int(i+entry_steps)
-            # print(s)
-           # entry_steps-=entry_steps
-            return bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount
-        
-        else:
+    #    if  phicount == phases[-1] :
+    #        
+    
             print(bottom)
             print('start')
             totaltimebins=totaltimebins+1
@@ -301,12 +308,15 @@ def exit_interference(bottom, top, count,phases,totaltimebins,entry_steps,exit_s
             bottom_temp = bottom[0]
             bottom[0] = top_temp
             top[0] = bottom_temp
-            out[i]=bottom[-1]
-            bottom[-1] = 0
-            print(bottom)
-            print(top)
-            print(out)
+            
+            
+            
             entry_steps-=entry_steps
+            
+            if thetacount ==  phases[-2]:
+                out[i]=bottom[1]
+                bottom[1] = 0
+                 
             return bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount
 
 def exit(bottom, top, count,phases,totaltimebins,entry_steps,N,thetacount, phicount):
@@ -316,13 +326,24 @@ def exit(bottom, top, count,phases,totaltimebins,entry_steps,N,thetacount, phico
     out=np.zeros(N+2, dtype=object)
     print(out)
     exit_sum = 0
-    for i in range(int(np.size(bottom)+N/2)):
+    print("the phicount:",phases[phicount])
+    for i in range(int(np.size(bottom))):
         print("exit sum",exit_sum)
         bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount=exit_interference(bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount)
         print(bottom)
         
         exit_sum+=1
         print("exit sum",exit_sum)
+    # top_temp = top[0]
+    # bottom_temp = bottom[0]
+    # bottom[0] = top_temp
+    # top[0] = bottom_temp
+            
+    for i in range(int(np.size(bottom)+N/2)):
+        last_one(bottom, top, count,phases,totaltimebins,entry_steps,exit_sum,N,out,i,thetacount, phicount)
+        # last_value_top = top[0]  # Store the first value of bottom
+        # top[:-1] = top[1:]  # Shift elements down by one position
+        # top[-1] = last_value_top # Assign the first value to the last in
 
     print(speed_of_light)
     print("speed in cable",speed_in_cable)
