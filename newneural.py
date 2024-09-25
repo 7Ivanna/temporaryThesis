@@ -49,44 +49,10 @@ multiguy=aa.multiPhotonUnitary(2, U)# I think this is fine
 
 # Gaussian function
 def gaussian(t, tj, tau, sigma_t):
-            normalization_factor = 1 / (sigma_t * np.sqrt(np.sqrt( np.pi)))
+            normalization_factor = 1 / (np.sqrt(sigma_t) * np.sqrt(np.sqrt( np.pi)))
             return normalization_factor * np.exp(-((t - tj - tau) ** 2) / (2 * sigma_t**2))
 
-sigma_t = 1 / (2 * np.sqrt(2 * np.log(2))) # converted sigma
 
-t = np.linspace(-10, 10, 200)
-t1, t2 = np.meshgrid(t, t)
-tj = 3
-alpha1_t1 = gaussian(t1, -tj / 2.0, 0.0, 1.0)
-alpha1_t2 = gaussian(t2, -tj / 2.0, 0.0, 1.0)
-alpha2_t1 = gaussian(t1, tj / 2.0, 0.0, 1.0)
-alpha2_t2 = gaussian(t2, tj / 2.0, 0.0, 1.0)
-#wf = 0.5 * (alpha1_t1 * alpha2_t2 + alpha1_t2 * alpha2_t1)
-wf = alpha1_t1 * alpha2_t2 + alpha1_t2 * alpha2_t1
-wf /= np.sqrt(np.trapz(np.trapz(np.abs(wf) ** 2, t), t))
-psi0 = np.zeros((21, 200, 200), dtype = complex)
-psi2 = np.zeros((21, 200, 200), dtype = complex)
-psi3 = np.zeros((21, 200, 200), dtype = complex)
-psi4 = np.zeros((21, 200, 200), dtype = complex)
-# if you want |1010> as your input state, then you need to find that and insert wf there
-ind = basis(2, 6).index([0,1, 0, 1, 0,0])
-psi0[ind, :, :] = wf
-ind2 = basis(2, 6).index([0,1, 0, 0, 1,0])
-psi2[ind2, :, :] = wf
-ind3 = basis(2, 6).index([0,0, 1, 1, 0,0])
-psi3[ind3, :, :] = wf
-ind4 = basis(2, 6).index([0,0, 1, 0,1 ,0])
-psi4[ind4, :, :] = wf
-print(np.shape(psi0))
-psi_out = np.tensordot(multiguy, psi0, axes=1 )
-psi_out2 = np.tensordot(multiguy, psi2, axes=1 )
-psi_out3 = np.tensordot(multiguy, psi3, axes=1 )
-psi_out4 = np.tensordot(multiguy, psi4, axes=1 )
-
-#print(psi_out)
-t = np.linspace(-10, 10, 200)
-tj =np.array([0,0.05,0.1,0.15,0.2,0.3,0.4,0.5,0.7,0.9,1,1.2,1.3,1.4,1.5,1.7,2,2.5,2.6,2.7,3])
-tau = np.linspace(0, 10, 200)
 
 # this calculates the visibility ; same as only half of the hom measurment ! 
 def integral(t, tj,tau):
@@ -199,6 +165,8 @@ def probabilityCalc(psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_
 
     avg_probability =  [(sum(x))**(-1) for x in zip(*full4by4)]
     print(full4by4)
+    full_avg=element11
+
     
     # plt.figure()
     # y_labels = ['⟨00|','⟨01|', '⟨10|', '⟨11|']
@@ -208,7 +176,7 @@ def probabilityCalc(psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_
     # plt.yticks(np.arange(len(y_labels)), [str(state) for state in y_labels])
     # plt.show()
 
-    return avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t
+    return full_avg,avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t
 
 def ConditionalProbReal(avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t):
     e11=np.tensordot(psi0_target,psi_out, axes=1)
@@ -258,22 +226,76 @@ def ConditionalProbReal(avg_probability,psi0_target,psi2_target,psi3_target,psi4
     return
 
 
-psi0_target = np.zeros(21, dtype=complex)
-psi2_target = np.zeros(21, dtype=complex)
-psi3_target = np.zeros(21, dtype=complex)
-psi4_target = np.zeros(21, dtype=complex)
-
-ind_psi_targ = basis(2, 6).index([0,1, 0, 1, 0,0])
-psi0_target[ind_psi_targ] = 1
-ind_psi_targ2 = basis(2, 6).index([0,1, 0, 0, 1,0])
-psi2_target[ind_psi_targ2] = 1
-ind_psi_targ4 = basis(2, 6).index([0,0, 1, 1, 0,0])
-
-ind_psi_targ3 = basis(2, 6).index([0,0, 1, 0, 1,0])
-psi4_target[ind_psi_targ3] = 1 #ask jacob about this.... casue im sus as fukkk
-psi3_target[ind_psi_targ4] = 1
+sigma_t = 1 / (2 * np.sqrt(2 * np.log(2))) # converted sigma
 
 
-avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t=probabilityCalc(psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t) #sending this off to calculate the probabilites
 
-ConditionalProbReal(avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t)
+
+#print(psi_out)
+
+tj = np.linspace(0.0, 5.0, 100)
+
+
+probs=np.zeros(len(tj))
+
+for i in range (len(tj)):
+    t = np.linspace(-10, 10, 200)
+    tau = np.linspace(0, 10, 200)
+
+    t1, t2 = np.meshgrid(t, t)
+        
+    alpha1_t1 = gaussian(t1, -tj[i] / 2.0, 0.0, 1.0)
+    alpha1_t2 = gaussian(t2, -tj[i] / 2.0, 0.0, 1.0)
+    alpha2_t1 = gaussian(t1, tj[i] / 2.0, 0.0, 1.0)
+    alpha2_t2 = gaussian(t2, tj[i] / 2.0, 0.0, 1.0)
+    wf = alpha1_t1 * alpha2_t2 + alpha1_t2 * alpha2_t1
+    wf /= np.sqrt(np.trapz(np.trapz(np.abs(wf) ** 2, t), t))
+    # wf = alpha1_t1 * alpha2_t2
+
+    psi0 = np.zeros((21, 200, 200), dtype = complex)
+    psi2 = np.zeros((21, 200, 200), dtype = complex)
+    psi3 = np.zeros((21, 200, 200), dtype = complex)
+    psi4 = np.zeros((21, 200, 200), dtype = complex)
+    # if you want |1010> as your input state, then you need to find that and insert wf there
+    ind = basis(2, 6).index([0,1, 0, 1, 0,0])
+    psi0[ind, :, :] = wf
+    ind2 = basis(2, 6).index([0,1, 0, 0, 1,0])
+    psi2[ind2, :, :] = wf
+    ind3 = basis(2, 6).index([0,0, 1, 1, 0,0])
+    psi3[ind3, :, :] = wf
+    ind4 = basis(2, 6).index([0,0, 1, 0,1 ,0])
+    psi4[ind4, :, :] = wf
+    print(np.shape(psi0))
+    psi_out = np.tensordot(multiguy, psi0, axes=1 )
+    psi_out2 = np.tensordot(multiguy, psi2, axes=1 )
+    psi_out3 = np.tensordot(multiguy, psi3, axes=1 )
+    psi_out4 = np.tensordot(multiguy, psi4, axes=1 )
+    psi0_target = np.zeros(21, dtype=complex)
+    psi2_target = np.zeros(21, dtype=complex)
+    psi3_target = np.zeros(21, dtype=complex)
+    psi4_target = np.zeros(21, dtype=complex)
+
+    print(np.trapz(np.trapz(np.abs(psi_out) ** 2, t), t))
+
+    ind_psi_targ = basis(2, 6).index([0,1, 0, 1, 0,0])
+    psi0_target[ind_psi_targ] = 1
+    ind_psi_targ2 = basis(2, 6).index([0,1, 0, 0, 1,0])
+    psi2_target[ind_psi_targ2] = 1
+    ind_psi_targ4 = basis(2, 6).index([0,0, 1, 1, 0,0])
+
+    ind_psi_targ3 = basis(2, 6).index([0,0, 1, 0, 1,0])
+    psi4_target[ind_psi_targ3] = 1 #ask jacob about this.... casue im sus as fukkk
+    psi3_target[ind_psi_targ4] = 1
+
+
+    full_avg,avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t=probabilityCalc(psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t) #sending this off to calculate the probabilites
+    probs[i]=full_avg
+    print(full_avg)
+    ConditionalProbReal(avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t)
+
+plt.ylabel('Fidelity for 1 square')
+plt.xlabel('mean tj')
+plt.plot(tj,probs)
+    
+plt.show()
+    

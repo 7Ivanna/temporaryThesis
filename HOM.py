@@ -66,4 +66,3 @@ plt.xlabel('Time [ns]')
 plt.ylabel('Coincidence Amplitude')
 plt.grid(True)
 plt.show()
-# %%

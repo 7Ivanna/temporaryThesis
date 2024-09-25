@@ -290,5 +290,3 @@ def conditional():
 conditional()
 
 
-
-# %%

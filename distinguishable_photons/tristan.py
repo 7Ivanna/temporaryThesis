@@ -12,39 +12,13 @@ import matplotlib.pyplot as plt
 import quotonic.training_sets as ts
 from quotonic.misc import genHaarUnitary
 
-# train=ts.CNOT()
-# neural=qp.QPNN(2,6,2,trainingSet=train)
-
-# allPhases = np.zeros(neural.pspl * 2)
-
-#harrmesh = Mesh(4)
-#random_matrix = genHaarUnitary(4)
-#ecoded = harrmesh.decode(random_matrix)
-#llPhases[0 : neural.pspl] = harrmesh.phasess
-
-mesh = Mesh(6)
-U = np.array([[-1, np.sqrt(2), 0, 0, 0, 0], #replace when I am working with my 4x4 to the normal cnot gate :)
+U = np.array([[-1, np.sqrt(2), 0, 0, 0, 0], #U for 1 photon
             [np.sqrt(2), 1, 0, 0, 0, 0],
             [0, 0, -1, 1, 1, 0],
             [0, 0, 1, 1, 0, 1],
             [0, 0, 1, 0, 1, -1],
             [0, 0, 0, 1, -1, -1]], dtype=complex) / np.sqrt(3)
-decoded = mesh.decode(U)
-# allPhases[0 : neural.pspl] = mesh.phases
 
-# random_matrix = genHaarUnitary(4)
-
-# allPhases[neural.pspl ::] = mesh.phases
-
-# print("meshes", allPhases)
-# print("ok")
-
-#kerr_unit = kerr.buildKerrUnitary(2,6,np.pi)
-#print(kerr_unit)
-#u_k_array = np.dot(kerr_unit,multiguy)
-
-# setting_phases =  neural.set_phases(allPhases)
-# func_S = neural.sysFunc()
 multiguy=aa.multiPhotonUnitary(2, U)# I think this is fine
 
 # Gaussian function
@@ -200,13 +174,13 @@ def probabilityCalc(psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_
     avg_probability =  [(sum(x))**(-1) for x in zip(*full4by4)]
     print(full4by4)
     
-    # plt.figure()
-    # y_labels = ['⟨00|','⟨01|', '⟨10|', '⟨11|']
-    # x_labels = ['|00⟩','|01⟩', '|10⟩', '|11⟩']
-    # hinton(np.real(full4by4), x_labels, y_labels)
-    # plt.xticks(np.arange(len(x_labels)), [str(state) for state in x_labels])
-    # plt.yticks(np.arange(len(y_labels)), [str(state) for state in y_labels])
-    # plt.show()
+    plt.figure()
+    y_labels = ['⟨00|','⟨01|', '⟨10|', '⟨11|']
+    x_labels = ['|00⟩','|01⟩', '|10⟩', '|11⟩']
+    hinton(np.real(full4by4), x_labels, y_labels)
+    plt.xticks(np.arange(len(x_labels)), [str(state) for state in x_labels])
+    plt.yticks(np.arange(len(y_labels)), [str(state) for state in y_labels])
+    plt.show()
 
     return avg_probability,psi0_target,psi2_target,psi3_target,psi4_target,psi_out,psi_out2,psi_out3,psi_out4,t
 

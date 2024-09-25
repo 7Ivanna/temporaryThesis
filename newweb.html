@@ -1,0 +1,688 @@
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">.year-summary {
+        display: flex;
+        align-items:  flex-start;
+        justify-content: left;
+        font-size: 35px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-top: 20px; /* Adjust this value to move the images down */
+
+    }
+
+    .year-summary img {
+        margin-left: 10px;
+        margin-bottom: 1px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; /* Make images circular */
+
+    }
+
+    .article-details img {
+        width: 100%;
+        height: auto;
+    }
+
+    hr {
+        border: 1px solid black;
+        margin: 20px 0;
+    }
+
+    .arrow {
+        margin-right: 10px;
+        margin-top: 11px; /* Adjust this value to move the images down */
+        font-size: 20px; /* Adjust this to make the arrow smaller */
+    }
+
+    .year-articles {
+        display: none; /* Initially hidden */
+    }
+
+    .year-summary.open .arrow {
+        transform: rotate(90deg);
+    }
+
+    .year-summary.open + .year-articles {
+        display: block;
+    }
+</style>
+<script>
+    function toggleYear(yearElement) {
+        // Close all other year-summary sections except the submitted articles
+        const allYearSummaries = document.querySelectorAll('.year-summary');
+        allYearSummaries.forEach(summary => {
+            if (summary !== yearElement && !summary.classList.contains('submitted-articles')) {
+                summary.classList.remove('open');
+            }
+        });
+        
+        // Toggle the clicked year-summary section
+        yearElement.classList.toggle('open');
+    }
+
+    // Initialize: Open Submitted Articles section
+    document.addEventListener('DOMContentLoaded', function() {
+        const submittedArticles = document.querySelector('.year-summary.submitted-articles');
+        submittedArticles.classList.add('open');
+    });
+</script>
+<div class="year-summary submitted-articles" onclick="toggleYear(this)"><span class="arrow">►</span> Submitted Articles <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/New_TA_2024.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="From Hybrid Quantum - Classical Photonic Neural Networks" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/New_TA_2024.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Hybrid Quantum-Classical Photonic Neural Networks </em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2407.02366">arXiv</a>]</br>
+			Tristan Austin, Simon Bilodeau, Andrew Hayman, Nir Rotenberg, Bhavin Shastri</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2024 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2023_PhaseMeasurement.png" /><img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2023_qPICsQDs.png" /><img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/AW_2024.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+        <tr>
+			<td style="width: 20%;"><img alt="Cryogenic microphotoluminescence spectra from nanowire quantum dots" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2023_PhaseMeasurement.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Direct observation of non-linear phase shift induced by a single quantum emitter in a waveguide</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2305.06839">arXiv</a>]<a href="https://www.nature.com/articles/s41467-024-51805-9"> Nature Communications </a>15, 7583 (2024)<br />
+			M.J.R. Staunstrup, A. Tiranov, Y. Wang, S. Scholz, A.D. Wieck, A. Ludwig, L. Midolo, N. Rotenberg, P. Lodahl and H. Le Jeannic</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="A quantum dot acts as a reconfigurable phase shifter" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2023_qPICsQDs.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Reconfigurable quantum photonic circuits based on quantum dots </em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2312.10521">arXiv</a>]<a href="https://www.degruyter.com/document/doi/10.1515/nanoph-2024-0044/html"> Nanophotonics </a>13, 2951 (2024)<br />
+			A. McCaw, J. Ewaniuk, B.J. Shastri, and N. Rotenberg</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="Group V switching sequence during growth of the
+dot-in-a-rod section of the nanowire core. Light (dark) grey
+region indicates rod (dot) growth. Inset shows a transmission
+electron microscopy image of the corresponding section. The
+scale bar indicates 20 nm." src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/AW_2024.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Single photon emission in the telecom C-band from nanowire-based quantum dots </em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2309.13381
+">arXiv</a>] <a href="https://pubs.aip.org/aip/apl/article/124/4/044006/3105939/Single-photon-emission-in-the-telecom-C-band-from">Applied Physics Letters</a> 124, 044006 (2024)<br />
+			Andrew N. Wakileh, Lingxi Yu, Doğa Dokuz, Sofiane Haffouz, Xiaohua Wu, Jean Lapointe, David B. Northeast, Robin L. Williams, Nir Rotenberg, Philip J. Poole, Dan Dalacu</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2023 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2023_2QDs.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2022_QPNNs_fat.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="A new system to independently control two quantum dots coupled to a single photonic waveguide" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2023_2QDs.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Independent electrical control of two quantum dots coupled through a photonic crystal waveguide</em></p>
+
+			<p>[<a href="https://doi.org/10.48550/arXiv.2303.00345">arXiv</a>] <a href="https://doi.org/10.1103/PhysRevLett.131.033606">Physical Review Letters</a> 131, 033606 (2023)<br />
+			X.-L. Chu, C. Papon, N. Bart, A.D Wieck, A. Ludwig, L. Midolo, N. Rotenberg and P. Lodahl</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="Do realistic quantum photonic neural networks work? We say yes" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2022_QPNNs_fat.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Imperfect quantum photonic neural networks</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2208.06571">arXiv</a>] <a href="https://doi.org/10.1002/qute.202200125">Advanced Quantum Technologies</a> 6, 2200125 (2023)<br />
+			J. Ewaniuk, J. Carolan, B.J. Shastri and N. Rotenberg</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2022 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2022_CoupledEmitters_Small.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2021_DynamicNonlinearScattering.png" /> <img alt="3" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2022_InverseOptimize.png" /> <img alt="4" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2021_TopologicalPhCWs.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="If two emitters are coupled, they may response much more slowly (subradiant) or quickly (superradiant) then if they were alone, and this combined response is represented by the Green's tensor (shown here for a photonic crystal waveguide)" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2022_CoupledEmitters_Small.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Sub-radiant states for imperfect quantum emitters coupled by a nanophotonic waveguide</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2206.00573">arXiv</a>] <a href="https://doi.org/10.1103/PhysRevA.106.053702">Physical Review A</a> 106, 053702 (2022)<br />
+			X.-L. Chu, V. Angelopoulou,&nbsp;P. Lodahl and N. Rotenberg</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="2-time correlation function for 2 photons in a pulse simultaneously scattering from a quantum dot" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2021_DynamicNonlinearScattering.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Dynamical photon-photon interaction mediated by a quantum emitter</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2112.06820">arXiv</a>] <a href="https://www.nature.com/articles/s41567-022-01720-x">Nature Physics</a> 18, 1191 (2022)<br />
+			H. Le Jeannic, A. Tiranov, J. Carolan, T. Ramos, Y. Wang, M.H. Appel, S. Scholz, A.D. Wieck, A. Ludwig, N. Rotenberg, L. Midolo, J.J. García-Ripoll, A.&nbsp;S. Sørensen and P. Lodahl</p>
+
+			<p>Featured: <span style="color:#c0392b;">News &amp; Views</span> (<a href="https://www.nature.com/articles/s41567-022-01736-3">Quantum underpinnings of an all-photonic switch</a>) and <span style="color:#c0392b;">phys.org</span> (<a href="https://phys.org/news/2022-10-method-enable-efficient-interactions-photons.html">A new method to enable efficient interactions between photons</a>)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="How much can a topological photonic waveguide enhance directional (chiral interactions)? Here, we show the answer, using an efficient, inverse optimization routine." src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2022_InverseOptimize.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Optimizing the chiral Purcell factor for unidirectional single photon emitters in &nbsp;topological photonic crystal waveguides using inverse design</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2206.01300">arXiv</a>] <a href="https://doi.org/10.1103/PhysRevA.106.033514">Physical Review A</a> 106, 033514 (2022)<br />
+			E. Nussbaum, N. Rotenberg and S. Hughes</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="Directionality and emission enhancement of broken symmetry and topological photonic crystal waveguides" src="/qnlwww/sites/qnlwww/files/uploaded_files/Publications/2021_TopologicalPhCWs.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Chiral quantum optics in broken-symmetry and topological photonic crystal waveguides</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2111.02828">arXiv</a>] <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.4.023082">Physical Review Research</a> 4, 023082 (2022)<br />
+			N. Hauff, H. Le Jeannic, P. Lodahl,&nbsp;S. Hughes and N. Rotenberg</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2021 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2021_IntegratedWGM.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2021_PhyscialReviewLetters_.jpg" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="SEM of an Integrated whispering-gallery-mode resonator with embedded quantum dots" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2021_IntegratedWGM.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>An integrated whispering-gallery-mode resonator for solid-state coherent quantum photonics</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2107.12188">arXiv</a>] <a href="https://doi.org/10.1021/acs.nanolett.1c02818">Nano Letters</a> 21, 8707 (2021)<br />
+			A. Brooks, X.-L. Chu, Z. Liu, R. Schott, A. Ludwig, A.D. Wieck, L. Midolo, P. Lodahl and N. Rotenberg</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="Experimental reconstruction of the few-photon nonlinear scattering matrix from a single quantum dot in a nanophotonic waveguide" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2021_PhyscialReviewLetters_.jpg" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Experimental reconstruction of the few-photon nonlinear scattering matrix from a single quantum dot in a nanophotonic waveguide</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/2006.00258">arXiv</a>] <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.023603">Physical Review Letters</a> 126, 023603 (2021)<br />
+			H. Le Jeannic, T. Ramos, S.F. Simonsen, T. Pregnolato, Z. Liu, R. Schott, A.D. Wieck, A. Ludwig, N. Rotenberg, J. García-Ripoll and P. Lodahl</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2020 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2020_AdvancedQuantumTech.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2020_APLPhotonics.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from Advanced Quantum Technologies 2020 paper" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2020_AdvancedQuantumTech.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Lifetimes and quantum efficiencies of quantum dots deterministically positioned in photonic crystal waveguides</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/1909.08943">arXiv</a>] <a href="https://doi.org/10.1002/qute.202000026">Advanced Quantum Technologies</a>, 2000026 (2020)<br />
+			X.-L. Chu, T. Pregnolato, R. Schott, A.D. Wieck, A. Ludwig, N. Rotenberg and P. Lodahl</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt=" From article Deterministic positioning of nanophotonic waveguides around single self-assembled quantum dots" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2020_APLPhotonics.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Deterministic positioning of nanophotonic waveguides around single self-assembled quantum dots</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/1907.01426">arXiv</a>] <a href="https://aip.scitation.org/doi/full/10.1063/1.5117888">APL Photonics</a> 5, 086101 (2020)<br />
+			T. Pregnolato, X.-L. Chu, T. Schröder, R. Schott, A.D. Wieck, A. Ludwig, P. Lodahl and N. Rotenberg</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2019 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2019_Nanophotonics.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2019_ACSPhotonics.png" /> <img alt="3" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2019_LightScienceApplications.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from the Coherent nonlinear optics of quantum emitters in nanophotonic waveguides publication" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2019_Nanophotonics.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Coherent nonlinear optics of quantum emitters in nanophotonic waveguides</em> (<span style="color:#9d1939;">Review</span>)</p>
+
+			<p><a href="https://www.degruyter.com/document/doi/10.1515/nanoph-2019-0126/html">Nanophotonics</a> 8, 1641 (2019)<br />
+			P. Türschmann, H. Le Jeannic, S.F. Simonsen, H.R. Haakh, S. Götzinger, V. Sandoghdar, P. Lodahl and N. Rotenberg</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from Chiral emission into nanophotonic resonators publication" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2019_ACSPhotonics.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Chiral emission into nanophotonic resonators</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/1806.01299">arXiv</a>] <a href="https://doi.org/10.1021/acsphotonics.8b01555">ACS Photonics</a> 6, 961 (2019)<br />
+			D.M. Cano, H.R. Haakh, and N. Rotenberg</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from A full vectorial mapping of nanophotonic near fields" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2019_LightScienceApplications.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>A full vectorial mapping of nanophotonic near fields</em></p>
+
+			<p><a href="https://www.nature.com/articles/s41377-019-0124-3">Light, Science &amp; Applications</a> 8, 28 (2019)<br />
+			B. le Feber, J.E. Sipe, L. Kuipers, and N. Rotenberg</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2018 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2018_NanoLetters.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="article from Quantum optics with near-lifetime-limited quantum-dot transitions in a nanophotonic waveguide" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2018_NanoLetters.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Quantum optics with near-lifetime-limited quantum-dot transitions in a nanophotonic waveguide</em></p>
+
+			<p>[<a href="https://arxiv.org/abs/1711.10423">arXiv</a>] <a href="https://doi.org/10.1021/acs.nanolett.7b05016">Nano Letters</a> 18, 1801 (2018)<br />
+			H. Thyrrestrup, G. Kiršanskė, H. Le Jeannic, T. Pregnolato, L. Zhai, L. Raahauge, L. Midolo, N. Rotenberg, A. Javadi, R. Schott, A, D. Wieck, A. Ludwig, M.C. Löbl, I. Söllner, R.J. Warburton and P. Lodahl</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2017 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2017_NanoLetters.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2017_ACSPhotonics.png" /> <img alt="3" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2017_OpticsExpress.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Chip-based all-optical control of single molecules coherently coupled to a nanoguide" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2017_NanoLetters.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Chip-based all-optical control of single molecules coherently coupled to a nanoguide</em></p>
+
+			<p><a href="https://doi.org/10.1021/acs.nanolett.7b02033">Nano Letters</a> 17, 4791 (2017)<br />
+			P. Türschmann, N. Rotenberg, J. Renger, I. Harder, O. Lohse, T. Utikal, S. Götzinger and V. Sandoghdar</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Core-shell plasmonic nanohelices" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2017_ACSPhotonics.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Core-shell plasmonic nanohelices</em></p>
+
+			<p><a href="https://doi.org/10.1021/acsphotonics.7b00496">ACS Photonics </a>4, 1858 (2017)<br />
+			D. Kosters, A. de Hoogh, H. Zeijlemaker, H. Acar, N. Rotenberg and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Small slot waveguide rings for on-chip quantum optical circuits" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2017_OpticsExpress.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Small slot waveguide rings for on-chip quantum optical circuits</em></p>
+
+			<p><a href="https://doi.org/10.1364/OE.25.005397">Optics Express</a> 25, 5397 (2017)<br />
+			N. Rotenberg, P. Türschmann, H.R. Haakh, D.M. Cano, S. Götzinger and V. Sandoghdar</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2016 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2016_ACSPhotonics_EditorsChoice.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Harmonic generation from surface plasmon polaritons on single nanowires" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2016_ACSPhotonics_EditorsChoice.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Harmonic generation from surface plasmon polaritons on single nanowires</em> (<span style="color:#9d1939;">ACS Editor’s Choice Article</span>)</p>
+
+			<p><a href="https://pubs.acs.org/doi/abs/10.1021/acsphotonics.5b00686">ACS Photonics</a> 3, 1446 (2016)<br />
+			A. de Hoogh, A. Opheij, M. Wulf, N. Rotenberg and L. Kuipers</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2015 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_Optica.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_Photonics_Invited.png" /> <img alt="3" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_NatureComm.png" /> <img alt="4" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_NaturePhysics.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Tracking nanoscale electric and magnetic singularities through three-dimensional space" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_Optica.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Tracking nanoscale electric and magnetic singularities through three-dimensional space</em></p>
+
+			<p><a href="https://doi.org/10.1364/OPTICA.2.000540">Optica</a> 2, 540 (2015)<br />
+			N. Rotenberg, B. le Feber, T. D. Visser and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article creating and controlling polarization singularities in plasmonic field" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_Photonics_Invited.png" style="width: 100%;" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Creating and controlling polarization singularities in plasmonic fields</em> (<span style="color:#9d1939;">Invited</span>)</p>
+
+			<p>Photonics 2, 553 (2015)<br />
+			A. de Hoogh, T.D. Visser, L. Kuipers and N. Rotenberg</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Nanophotonic control of circular dipole emission" data-entity-type="file" data-entity-uuid="ec78b750-9c4e-4755-a010-d0597145e1fd" height="171" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_NatureComm.png" width="220" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Nanophotonic control of circular dipole emission</em></p>
+
+			<p><a href="https://www.nature.com/articles/ncomms7695">Nature Communications</a> 6, 6695 (2015)<br />
+			B. le Feber, N. Rotenberg and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Triggering extreme events at the nanoscale in photonic seas" class="thumbnail" data-entity-type="file" data-entity-uuid="26ea8654-12fb-474b-b6f1-366420e4e6b9" height="122" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2015_NaturePhysics.png" width="223" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Triggering extreme events at the nanoscale in photonic seas</em> (<span style="color:#9d1939;">Cover Article</span>)</p>
+
+			<p><a href="https://www.nature.com/articles/nphys3263">Nature Physics</a> 11, 358 (2015)<br />
+			C. Liu, R. van der Wel, N. Rotenberg, L. Kuipers, T.F. Krauss, A. di Falco, A. Fratalocchi</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2014 <img alt="1" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_NaturePhotonics_Review.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_ACSPhotonics.png" /> <img alt="3" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_JournalofOptics.png" /> <img alt="4" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_OpticsLetter.png" /> <img alt="5" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_NaturePhotonics.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Mapping nanoscale light field" class="thumbnail" data-entity-type="file" data-entity-uuid="1f038060-52d1-4025-a309-fd57b9fec9de" height="151" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_NaturePhotonics_Review.png" width="213" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Mapping nanoscale light fields</em> (<span style="color:#9d1939;">Review</span>)</p>
+
+			<p><a href="https://www.nature.com/articles/nphoton.2014.285">Nature Photonics</a> 8, 918 (2014)<br />
+			N. Rotenberg and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Ultrafast photonics on gold nanowires: confinement, dispersion and pulse propagation" data-entity-type="file" data-entity-uuid="49ce5f03-8fdb-4510-9435-d34c1e8e0d4d" height="149" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_ACSPhotonics.png" width="213" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Ultrafast photonics on gold nanowires: confinement, dispersion and pulse propagation</em></p>
+
+			<p><a href="https://pubs.acs.org/doi/10.1021/ph500260t">ACS Photonics</a> 1, 1173 (2014)<br />
+			M. Wulf, A. de Hoogh, N. Rotenberg, and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Optical singularities in plasmonic fields near single subwavelength holes" data-entity-type="file" data-entity-uuid="8627d7aa-fb43-4fa5-8587-b5ed8113f370" height="245" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_JournalofOptics.png" width="214" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Optical singularities in plasmonic fields near single subwavelength holes</em> (<span style="color:#c0392b;">Invited; Selected IOP Highlight of 2014</span>)</p>
+
+			<p><a href="https://iopscience.iop.org/article/10.1088/2040-8978/16/11/114004/meta">Journal of Optics</a> 16, 114004 (2014)<br />
+			A. de Hoogh, N. Rotenberg, and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Model symmetries at the nanoscale: a route towards a complete vectorial near-field mapping" class="thumbnail" data-entity-type="file" data-entity-uuid="7fa6e078-2d50-4d44-ac4e-057077e03136" height="230" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_OpticsLetter.png" width="215" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Model symmetries at the nanoscale: a route towards a complete vectorial near-field mapping </em></p>
+
+			<p><a href="https://doi.org/10.1364/OL.39.002802">Optics Letters</a> 39, 2802 (2014)<br />
+			B. le Feber, N. Rotenberg, D. van Oosten, and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Simultaneous measurement of nanoscale electric and magnetic optical fields" class="thumbnail" data-entity-type="file" data-entity-uuid="b1e2db6f-58b0-40fa-92bd-20e6a6d3e77b" height="214" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2014_NaturePhotonics.png" width="216" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Simultaneous measurement of nanoscale electric and magnetic optical fields</em></p>
+
+			<p><a href="https://www.nature.com/articles/nphoton.2013.323">Nature Photonics</a> 8, 43 (2014)<br />
+			B. le Feber, N. Rotenberg, D.M. Beggs and L. Kuipers</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2013 <img alt="from article Magnetic and electric response of single subwavelength holes" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_PhysicsReviewB.png" /> <img alt="2" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_ScientificReports.png" /> <img alt="3" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_NanoLetters.png" /> <img alt="4" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_OpticsExpress.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Magnetic and electric response of single subwavelength holes" class="thumbnail" data-entity-type="file" data-entity-uuid="fe7485a6-3cc1-4a8d-a89b-912bfcd
+                    37c95" height="202" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_PhysicsReviewB.png" width="212" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Magnetic and electric response of single subwavelength holes</em></p>
+
+			<p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.88.241408">Physical Review B</a> 88, 241408(R) (2013)<br />
+			N. Rotenberg, T. L. Krijger, B. le Feber, M. Spasenović, F. J. García de Abajo, and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Ultracompact (3 µm) silicon slow-light optical modulator" data-entity-type="file" data-entity-uuid="57ddb87a-576f-41fc-8324-ac0d21f2d744" height="181" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_ScientificReports.png" width="200" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Ultracompact (3 µm) silicon slow-light optical modulator</em></p>
+
+			<p><a href="https://www.nature.com/articles/srep03546">Scientific Reports</a> 3, 3546 (2013)<br />
+			A. Opheij, N. Rotenberg, D.M. Beggs, I.H. Rey, T.F. Krauss and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Unraveling nonlinear spectral evolution using nanoscale photonic near-field point-to-point measurements" data-entity-type="file" data-entity-uuid="30589365-a978-4576-9213-60d98c8b330b" height="121" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_NanoLetters.png" width="207" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Unraveling nonlinear spectral evolution using nanoscale photonic near-field point-to-point measurements</em></p>
+
+			<p><a href="https://pubs.acs.org/doi/abs/10.1021/nl4026456">Nano Letters</a> 13, 5858 (2013)<br />
+			M. Wulf, D.M. Beggs, N. Rotenberg and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Resonant coupling from a new angle: coherent control through geometry" class="thumbnail" data-entity-type="file" data-entity-uuid="30db2bfa-efb3-495d-b1c9-4d1307d3c515" height="143" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2013_OpticsExpress.png" width="206" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Resonant coupling from a new angle: coherent control through geometry</em></p>
+
+			<p><a href="https://doi.org/10.1364/OE.21.016504">Optics Express</a> 21, 16504 (2013)<br />
+			N. Rotenberg, D. M. Beggs, J. E. Sipe, and L. Kuipers</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2012 <img alt="from article Ultrafast tunable optical delay line based on indirect photonic transitions" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2012_PhysicalReviewLetters.png" /> <img alt="from article Plasmon scattering from single subwavelength holes" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2012_physicsreviewletters_plasmon.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Ultrafast tunable optical delay line based on indirect photonic transitions" data-entity-type="file" data-entity-uuid="1435c6c7-ae21-4f6f-a4f7-9abb445332d2" height="209" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2012_PhysicalReviewLetters.png" width="228" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Ultrafast tunable optical delay line based on indirect photonic transitions</em></p>
+
+			<p><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.108.213901">Physical Review Letters</a> 108, 213901 (2012)<br />
+			D.M. Beggs, I.H. Rey, T. Kampfrath, N. Rotenberg, L. Kuipers and T.F. Krauss</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Plasmon scattering from single subwavelength holes" data-entity-type="file" data-entity-uuid="5cba3a0c-ed7c-47fe-9370-b0832662c5fe" height="207" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2012_physicsreviewletters_plasmon.png" width="216" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Plasmon scattering from single subwavelength holes</em></p>
+
+			<p><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.108.127402">Physical Review Letters</a> 108, 127402 (2012)<br />
+			N. Rotenberg, M. Spasenović, T.L. Krijger, B. le Feber, F.J. García de Abajo and L. Kuipers</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2011 <img alt="from article Exploiting long-range order in quasiperiodic structures for broadband plasmonic excitation" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2011_AppliedPhysicsLetters.png" /> <img alt="from article All-optical ultrafast control of beaming through a single sub-wavelength aperture in a metal film" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2011_OpticsExpress.png" /> <img alt="from article An analytic model of plasmonic coupling: surface relief gratings" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2011_PhysicsReviewB.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Exploiting long-range order in quasiperiodic structures for broadband plasmonic excitation" data-entity-type="file" data-entity-uuid="9c988e73-5161-4b7c-8b28-e9b0ebd3fc1e" height="163" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2011_AppliedPhysicsLetters.png" width="220" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Exploiting long-range order in quasiperiodic structures for broadband plasmonic excitation</em></p>
+
+			<p><a href="https://doi.org/10.1063/1.3592847">Applied Physics Letters</a> 98, 201108 (2011)<br />
+			B. le Feber, J. Cesario, H. Zeijlemaker, N. Rotenberg and L. Kuipers</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article All-optical ultrafast control of beaming through a single sub-wavelength aperture in a metal film" data-entity-type="file" data-entity-uuid="73773114-3ba3-420f-a0b3-6ba0130b358c" height="211" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2011_OpticsExpress.png" width="204" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>All-optical ultrafast control of beaming through a single sub-wavelength aperture in a metal film</em></p>
+
+			<p><a href="https://doi.org/10.1364/OE.19.007856">Optics Express</a> 19, 7856 (2011)<br />
+			M.A. Swillam, N. Rotenberg and H.M. van Driel</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article An analytic model of plasmonic coupling: surface relief gratings" data-entity-type="file" data-entity-uuid="db8912d5-cbb7-4878-a224-845a92ee9a89" height="158" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2011_PhysicsReviewB.png" width="214" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>An analytic model of plasmonic coupling: surface relief gratings</em></p>
+
+			<p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.83.045416">Physical Review B</a> 83, 045416 (2011)<br />
+			N. Rotenberg and J.E. Sipe</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2010 <img alt="from article Ultrafast silicon-based active plasmonics at telecom wavelengths" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2010_opticsexpress.png" /> <img alt="from article Ultrafast all-optical coupling of light to surface plasmon polaritons on plain metal surfaces" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2010_PhysicsReviewLetters_couplinglight.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Ultrafast silicon-based active plasmonics at telecom wavelengths" data-entity-type="file" data-entity-uuid="c352d0f8-5df7-47a8-9a91-5d978838d016" height="171" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2010_opticsexpress.png" width="209" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Ultrafast silicon-based active plasmonics at telecom wavelengths</em></p>
+
+			<p><a href="https://doi.org/10.1364/OE.18.019761">Optics Express</a> 18, 19761 (2010)<br />
+			J.N. Caspers, N. Rotenberg and H.M. van Driel</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Ultrafast all-optical coupling of light to surface plasmon polaritons on plain metal surfaces" data-entity-type="file" data-entity-uuid="d924be55-6dbf-4769-a87e-691ab7c5f270" height="162" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2010_PhysicsReviewLetters_couplinglight.png" width="205" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Ultrafast all-optical coupling of light to surface plasmon polaritons on plain metal surfaces</em></p>
+
+			<p><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.105.017402">Physical Review Letters</a> 105, 017402 (2010)<br />
+			N. Rotenberg, M. Betz, and H.M. van Driel</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2009 <img alt="from article Tunable ultrafast control of plasmonic coupling to gold films" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2009_PhysicsReviewB_goldfilms.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Tunable ultrafast control of plasmonic coupling to gold films" class="thumbnail" data-entity-type="file" data-entity-uuid="c4419615-7e80-49c8-92e1-7eec8a9e5b72" height="143" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2009_PhysicsReviewB_goldfilms.png" width="205" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Tunable ultrafast control of plasmonic coupling to gold films </em></p>
+
+			<p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.80.245420">Physical Review B</a> 80, 245420 (2009)<br />
+			N. Rotenberg, M. Betz and H.M. van Driel</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2008 <img alt="from article Three photon absorption in silicon for 2300 – 3300 nm" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2008_AppliedPhysicsLetters_silicon.png" /> <img alt="from article Ultrafast control of grating-assisted light coupling to surface plasmons" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2008_OpticsLetters_grating-assisted.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Three photon absorption in silicon for 2300 – 3300 nm" class="thumbnail" data-entity-type="file" data-entity-uuid="27b272b4-cebb-4be3-8025-cd9d4e75c7f6" height="200" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2008_AppliedPhysicsLetters_silicon.png" width="201" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Three photon absorption in silicon for 2300 – 3300 nm</em></p>
+
+			<p><a href="https://aip.scitation.org/doi/10.1063/1.2991446">Applied Physics Letters</a> 93, 131102 (2008)<br />
+			S. Pearl, N. Rotenberg and H.M. van Driel</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Ultrafast control of grating-assisted light coupling to surface plasmons" data-entity-type="file" data-entity-uuid="24ee5285-5da9-4a11-8291-13883f601ac3" height="135" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2008_OpticsLetters_grating-assisted.png" width="203" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Ultrafast control of grating-assisted light coupling to surface plasmons</em></p>
+
+			<p><a href="https://doi.org/10.1364/OL.33.002137">Optics Letters</a> 33, 2137 (2008)<br />
+			N. Rotenberg, M. Betz and H.M. van Driel</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<hr />
+<div class="year-summary" onclick="toggleYear(this)"><span class="arrow">►</span> 2007 <img alt="from article Two-Photon Absorption and Kerr coefficient of Silicon for 850-2200 nm" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2007_appliedPhysicsLetters_silicon_.png" /> <img alt="from article Nonlinear absorption in Au films: Role of thermal effects" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2007_PhysicalReviewB_AuFilms.png" /></div>
+
+<div class="year-articles">
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Two-Photon Absorption and Kerr coefficient of Silicon for 850-2200 nm" data-entity-type="file" data-entity-uuid="6e6111e0-1cc0-4884-8348-b36c1c5e8f6b" height="164" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2007_appliedPhysicsLetters_silicon_.png" width="205" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Two-Photon Absorption and Kerr coefficient of Silicon for 850-2200 nm</em></p>
+
+			<p><a href="https://aip.scitation.org/doi/10.1063/1.2737359">Applied Physics Letters</a> 90, 191104 (2007)<br />
+			A.D. Bristow, N. Rotenberg and H.M. van Driel</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 20%;"><img alt="from article Nonlinear absorption in Au films: Role of thermal effects" data-entity-type="file" data-entity-uuid="b4310500-43ab-47c9-8848-ac3577d5cad7" height="127" loading="lazy" src="/qnlwww/sites/qnlwww/files/uploaded_images/publication%20images/2007_PhysicalReviewB_AuFilms.png" width="214" /></td>
+			<td style="width: 80%; vertical-align: top;">
+			<p><em>Nonlinear absorption in Au films: Role of thermal effects</em></p>
+
+			<p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.75.155426">Physical Review B</a> 75, 155426 (2007)<br />
+			N. Rotenberg, A.D. Bristow, M. Pfeiffer, M. Betz and H.M. van Driel</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
