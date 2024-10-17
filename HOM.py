@@ -1,5 +1,3 @@
-
-#%%
 #this is the good one i am using
 import numpy as np
 import seaborn as sns

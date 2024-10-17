@@ -39,6 +39,7 @@ def build (tj):
     alpha2_t1 = gaussian(t1, tj / 2.0, 0.0, 1.0)
     alpha2_t2 = gaussian(t2, tj / 2.0, 0.0, 1.0)
     wf = 0.5 * (alpha1_t1 * alpha2_t2 + alpha1_t2 * alpha2_t1)
+    wf = alpha1_t1 * alpha2_t2
 
     psi0 = np.zeros((21, 200, 200), dtype = complex)
     psi2 = np.zeros((21, 200, 200), dtype = complex)
@@ -193,4 +194,4 @@ def build (tj):
     return
 tj =np.array([0,0.05,0.1,0.15,0.2,0.3,0.4,0.5,0.7,0.9,1,1.2,1.3,1.4,1.5,1.7,2,2.5,2.6,2.7,3])
 for i in range (len(tj)):
-    build(tj)
+    build(tj[i])

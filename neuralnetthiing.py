@@ -101,22 +101,22 @@ def integral(t, tj,tau):
     
         
     return tau,total
-# V_array=np.zeros(len(tj))
-# for i in range(len(tj)):
-# x,y=integral(t, tj,tau)
-    # y_max = np.max(y)
-    # y_min = np.min(y)
-    # V = ( y_max - y_min )/y_max
-    # print(V)
-    # V_array[i] =V
+V_array=np.zeros(len(tj))
+for i in range(len(tj)):
+    x,y=integral(t, tj,tau)
+    y_max = np.max(y)
+    y_min = np.min(y)
+    V = ( y_max - y_min )/y_max
+    print(V)
+    V_array[i] =V
    
-# plt.plot(x,y)
-# plt.legend()
-# plt.title('Overlap')
-# plt.xlabel(' Mean Time Delay [ns]')
-# plt.ylabel('Overlap')
-# plt.grid(True)
-# plt.show()
+plt.plot(x,y)
+plt.legend()
+plt.title('Overlap')
+plt.xlabel(' Mean Time Delay [ns]')
+plt.ylabel('Overlap')
+plt.grid(True)
+plt.show()
 
 # calculating the target wavefunction
 
