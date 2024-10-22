@@ -7,6 +7,10 @@ def alpha(t, t0):
 def gen_basis(numPhotons, numModes):
     return list(product(list(range(1, numModes + 1, 1)), repeat=numPhotons))
 
+print(gen_basis(3,3))
+
+#%%
+
 def compute_wf_norm(t, psi):
     return np.trapz(np.trapz(np.abs(psi) ** 2, t), t)
 total_sum = 0.0

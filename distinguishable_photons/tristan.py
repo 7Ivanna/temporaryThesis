@@ -77,8 +77,9 @@ df = pd.DataFrame(data_dict)
 csv_file_path = 'data.csv'
 df.to_csv(csv_file_path, index=False)
 
-plt.plot(tjs, V)
-plt.plot(tjs, F)
+plt.plot(tjs, V, label = 'visibility')
+plt.plot(tjs, F, label = 'fidelity')
+plt.legend()
 plt.show()
 
 plt.plot(V, F)
